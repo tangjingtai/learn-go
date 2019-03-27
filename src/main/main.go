@@ -1,4 +1,4 @@
-package main
+ï»¿package main
 import (
 	"fmt"
 	"image"
@@ -14,25 +14,25 @@ func main() {
 }
 
 func telnetServer()  {
-	// ´´½¨Ò»¸ö³ÌĞò½áÊøÂëµÄÍ¨µÀ
+	// åˆ›å»ºä¸€ä¸ªç¨‹åºç»“æŸç çš„é€šé“
 	exitChan := make(chan int)
-	// ½«·şÎñÆ÷²¢·¢ÔËĞĞ
+	// å°†æœåŠ¡å™¨å¹¶å‘è¿è¡Œ
 	go server("127.0.0.1:7001", exitChan)
-	// Í¨µÀ×èÈû, µÈ´ı½ÓÊÕ·µ»ØÖµ
+	// é€šé“é˜»å¡, ç­‰å¾…æ¥æ”¶è¿”å›å€¼
 	code := <-exitChan
-	// ±ê¼Ç³ÌĞò·µ»ØÖµ²¢ÍË³ö
+	// æ ‡è®°ç¨‹åºè¿”å›å€¼å¹¶é€€å‡º
 	os.Exit(code)
 }
 
 func slice()  {
-	// ÉèÖÃÔªËØÊıÁ¿Îª1000
+	// è®¾ç½®å…ƒç´ æ•°é‡ä¸º1000
 	const elementCount = 20
-	// Ô¤·ÖÅä×ã¹»¶àµÄÔªËØÇĞÆ¬
+	// é¢„åˆ†é…è¶³å¤Ÿå¤šçš„å…ƒç´ åˆ‡ç‰‡
 	srcData := make([]int, elementCount)
 
-	// ÒıÓÃÇĞÆ¬Êı¾İ
+	// å¼•ç”¨åˆ‡ç‰‡æ•°æ®
 	refData := srcData
-	// ½«ÇĞÆ¬¸³Öµ
+	// å°†åˆ‡ç‰‡èµ‹å€¼
 	for i := 0; i < elementCount; i++ {
 		srcData[i] = i
 	}
@@ -42,11 +42,11 @@ func slice()  {
 	fmt.Println(copyData)
 
 	seq := []string{"a", "b", "c", "d", "e"}
-	// Ö¸¶¨É¾³ıÎ»ÖÃ
+	// æŒ‡å®šåˆ é™¤ä½ç½®
 	index := 2
-	// ²é¿´É¾³ıÎ»ÖÃÖ®Ç°µÄÔªËØºÍÖ®ºóµÄÔªËØ
+	// æŸ¥çœ‹åˆ é™¤ä½ç½®ä¹‹å‰çš„å…ƒç´ å’Œä¹‹åçš„å…ƒç´ 
 	fmt.Println(seq[:index], seq[index+1:])
-	// ½«É¾³ıµãÇ°ºóµÄÔªËØÁ¬½ÓÆğÀ´
+	// å°†åˆ é™¤ç‚¹å‰åçš„å…ƒç´ è¿æ¥èµ·æ¥
 	seq = append(seq[:index], seq[index+1:]...)
 	fmt.Println(seq)
 	dic := make(map[int]string)
@@ -56,19 +56,19 @@ func slice()  {
 }
 
 func point()  {
-	// ×¼±¸Ò»¸ö×Ö·û´®ÀàĞÍ
+	// å‡†å¤‡ä¸€ä¸ªå­—ç¬¦ä¸²ç±»å‹
 	var house = "Malibu Point 10880, 90265"
-	// ¶Ô×Ö·û´®È¡µØÖ·, ptrÀàĞÍÎª*string
+	// å¯¹å­—ç¬¦ä¸²å–åœ°å€, ptrç±»å‹ä¸º*string
 	ptr := &house
-	// ´òÓ¡ptrµÄÀàĞÍ
+	// æ‰“å°ptrçš„ç±»å‹
 	fmt.Printf("ptr type: %T\n", ptr)
-	// ´òÓ¡ptrµÄÖ¸ÕëµØÖ·
+	// æ‰“å°ptrçš„æŒ‡é’ˆåœ°å€
 	fmt.Printf("address: %p\n", ptr)
-	// ¶ÔÖ¸Õë½øĞĞÈ¡Öµ²Ù×÷
+	// å¯¹æŒ‡é’ˆè¿›è¡Œå–å€¼æ“ä½œ
 	value := *ptr
-	// È¡ÖµºóµÄÀàĞÍ
+	// å–å€¼åçš„ç±»å‹
 	fmt.Printf("value type: %T\n", value)
-	// Ö¸ÕëÈ¡Öµºó¾ÍÊÇÖ¸Ïò±äÁ¿µÄÖµ
+	// æŒ‡é’ˆå–å€¼åå°±æ˜¯æŒ‡å‘å˜é‡çš„å€¼
 	fmt.Printf("value: %s\n", value)
 }
 
@@ -76,48 +76,48 @@ type Weapon int
 
 func enumMock(){
 	const (
-		Arrow Weapon = iota    // ¿ªÊ¼Éú³ÉÃ¶¾ÙÖµ, Ä¬ÈÏÎª0
+		Arrow Weapon = iota    // å¼€å§‹ç”Ÿæˆæšä¸¾å€¼, é»˜è®¤ä¸º0
 		Shuriken
 		SniperRifle
 		Rifle
 		Blower
 	)
-	// Êä³öËùÓĞÃ¶¾ÙÖµ
+	// è¾“å‡ºæ‰€æœ‰æšä¸¾å€¼
 	fmt.Println(Arrow, Shuriken, SniperRifle, Rifle, Blower)
-	// Ê¹ÓÃÃ¶¾ÙÀàĞÍ²¢¸³³õÖµ
+	// ä½¿ç”¨æšä¸¾ç±»å‹å¹¶èµ‹åˆå€¼
 	var weapon Weapon = Blower
 	fmt.Println(weapon)
 }
 
 func sinPic() {
-	// Í¼Æ¬´óĞ¡
+	// å›¾ç‰‡å¤§å°
 	const size = 300
-	// ¸ù¾İ¸ø¶¨´óĞ¡´´½¨»Ò¶ÈÍ¼
+	// æ ¹æ®ç»™å®šå¤§å°åˆ›å»ºç°åº¦å›¾
 	pic := image.NewGray(image.Rect(0, 0, size, size))
-	// ±éÀúÃ¿¸öÏñËØ
+	// éå†æ¯ä¸ªåƒç´ 
 	for x := 0; x < size; x++ {
 		for y := 0; y < size; y++ {
-			// Ìî³äÎª°×É«
+			// å¡«å……ä¸ºç™½è‰²
 			pic.SetGray(x, y, color.Gray{255})
 		}
 	}
-	// ´Ó0µ½×î´óÏñËØÉú³Éx×ø±ê
+	// ä»0åˆ°æœ€å¤§åƒç´ ç”Ÿæˆxåæ ‡
 	for x := 0; x < size; x++ {
-		// ÈÃsinµÄÖµµÄ·¶Î§ÔÚ0~2PiÖ®¼ä
+		// è®©sinçš„å€¼çš„èŒƒå›´åœ¨0~2Piä¹‹é—´
 		s := float64(x) * 2 * math.Pi / size
-		// sinµÄ·ù¶ÈÎªÒ»°ëµÄÏñËØ¡£ÏòÏÂÆ«ÒÆÒ»°ëÏñËØ²¢·­×ª
+		// sinçš„å¹…åº¦ä¸ºä¸€åŠçš„åƒç´ ã€‚å‘ä¸‹åç§»ä¸€åŠåƒç´ å¹¶ç¿»è½¬
 		y := size/2 - math.Sin(s)*size/2
-		// ÓÃºÚÉ«»æÖÆsin¹ì¼£
+		// ç”¨é»‘è‰²ç»˜åˆ¶sinè½¨è¿¹
 		pic.SetGray(x, int(y), color.Gray{0})
 	}
-	// ´´½¨ÎÄ¼ş
+	// åˆ›å»ºæ–‡ä»¶
 	file, err := os.Create("sin.png")
 	if err != nil {
 		log.Fatal(err)
 	}
-	// Ê¹ÓÃpng¸ñÊ½½«Êı¾İĞ´ÈëÎÄ¼ş
+	// ä½¿ç”¨pngæ ¼å¼å°†æ•°æ®å†™å…¥æ–‡ä»¶
 	png.Encode(file, pic)
-	//½«imageĞÅÏ¢Ğ´ÈëÎÄ¼şÖĞ
-	// ¹Ø±ÕÎÄ¼ş
+	//å°†imageä¿¡æ¯å†™å…¥æ–‡ä»¶ä¸­
+	// å…³é—­æ–‡ä»¶
 	file.Close()
 }
