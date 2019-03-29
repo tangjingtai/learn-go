@@ -13,7 +13,10 @@ import (
 func main() {
 	//telnetServer()
 	//ValueOrReferenceTransmit()
-	reflectCall()
+	//reflectCall()
+	//slice()
+	//genProfile()
+	waitGroupTest()
 }
 
 func telnetServer() {
