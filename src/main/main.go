@@ -1,4 +1,5 @@
-﻿package main
+package main
+
 import (
 	"fmt"
 	"image"
@@ -8,12 +9,14 @@ import (
 	"math"
 	"os"
 )
+
 func main() {
 	//telnetServer()
-	race()
+	//ValueOrReferenceTransmit()
+	reflectCall()
 }
 
-func telnetServer()  {
+func telnetServer() {
 	// 创建一个程序结束码的通道
 	exitChan := make(chan int)
 	// 将服务器并发运行
@@ -24,7 +27,7 @@ func telnetServer()  {
 	os.Exit(code)
 }
 
-func slice()  {
+func slice() {
 	// 设置元素数量为1000
 	const elementCount = 20
 	// 预分配足够多的元素切片
@@ -55,7 +58,7 @@ func slice()  {
 	fmt.Println(a, ok)
 }
 
-func point()  {
+func point() {
 	// 准备一个字符串类型
 	var house = "Malibu Point 10880, 90265"
 	// 对字符串取地址, ptr类型为*string
@@ -74,9 +77,9 @@ func point()  {
 
 type Weapon int
 
-func enumMock(){
+func enumMock() {
 	const (
-		Arrow Weapon = iota    // 开始生成枚举值, 默认为0
+		Arrow Weapon = iota // 开始生成枚举值, 默认为0
 		Shuriken
 		SniperRifle
 		Rifle
