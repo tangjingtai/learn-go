@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"net"
+	"os"
 	"strings"
 )
 
@@ -64,4 +65,15 @@ func processTelnetCommand(str string, exitChan chan int) bool {
 	// 打印输入的字符串
 	fmt.Println(str)
 	return true
+}
+
+func telnetServer() {
+	// 创建一个程序结束码的通道
+	exitChan := make(chan int)
+	// 将服务器并发运行
+	go server("127.0.0.1:7001", exitChan)
+	// 通道阻塞, 等待接收返回值
+	code := <-exitChan
+	// 标记程序返回值并退出
+	os.Exit(code)
 }
