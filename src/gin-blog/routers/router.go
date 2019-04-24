@@ -1,10 +1,12 @@
 package routers
 
 import (
+	"fmt"
 	"gin-blog/middleware/jwt"
 	"gin-blog/routers/api"
 	"gin-blog/routers/api/v1"
 	"github.com/gin-gonic/gin"
+	"net/http"
 
 	"gin-blog/pkg/setting"
 )
@@ -49,6 +51,18 @@ func InitRouter() *gin.Engine {
 		//删除指定文章
 		apiv1.DELETE("/articles/:id", v1.DeleteArticle)
 	}
+
+	apiTest := r.Group("/api/test")
+	apiTest.GET("/value", func(c *gin.Context) {
+		name := c.Query("name")
+		fmt.Println(c.Request.URL.Query())
+		c.JSON(http.StatusOK, []gin.H{
+			{
+				"name":  name,
+				"value": 200,
+			},
+		})
+	})
 
 	return r
 }
