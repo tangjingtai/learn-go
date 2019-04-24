@@ -7,8 +7,6 @@ import (
 	"gin-blog/routers/api/v1"
 	"github.com/gin-gonic/gin"
 	"net/http"
-
-	"gin-blog/pkg/setting"
 )
 
 func InitRouter() *gin.Engine {
@@ -18,7 +16,7 @@ func InitRouter() *gin.Engine {
 
 	r.Use(gin.Recovery())
 
-	gin.SetMode(setting.RunMode)
+	//gin.SetMode(setting.AppSetting.RunMode)
 
 	r.GET("/test", func(c *gin.Context) {
 		c.JSON(200, gin.H{

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"gin-blog/models"
 	"log"
 	"net/http"
 	"os"
@@ -13,16 +14,26 @@ import (
 	"gin-blog/routers"
 )
 
+func init() {
+	setting.Setup()
+	models.Setup()
+}
+
 func main() {
 	router := routers.InitRouter()
 
 	s := &http.Server{
-		Addr:           fmt.Sprintf(":%d", setting.HTTPPort),
+		Addr:           fmt.Sprintf(":%d", setting.ServerSetting.HttpPort),
 		Handler:        router,
-		ReadTimeout:    setting.ReadTimeout,
-		WriteTimeout:   setting.WriteTimeout,
+		ReadTimeout:    setting.ServerSetting.ReadTimeout,
+		WriteTimeout:   setting.ServerSetting.WriteTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
+	go func() {
+		if err := s.ListenAndServe(); err != nil {
+			log.Printf("Listen: %s\n", err)
+		}
+	}()
 
 	go func() {
 		if err := s.ListenAndServe(); err != nil {

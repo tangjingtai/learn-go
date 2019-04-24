@@ -1,9 +1,6 @@
 package models
 
-import (
-	"github.com/jinzhu/gorm"
-	"time"
-)
+import "github.com/jinzhu/gorm"
 
 type Tag struct {
 	Model
@@ -14,17 +11,17 @@ type Tag struct {
 	State      int    `json:"state"`
 }
 
-func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
-	scope.SetColumn("CreatedOn", time.Now().Unix())
-
-	return nil
-}
-
-func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
-	scope.SetColumn("ModifiedOn", time.Now().Unix())
-
-	return nil
-}
+//func (tag *Tag) BeforeCreate(scope *gorm.Scope) error {
+//	scope.SetColumn("CreatedOn", time.Now().Unix())
+//
+//	return nil
+//}
+//
+//func (tag *Tag) BeforeUpdate(scope *gorm.Scope) error {
+//	scope.SetColumn("ModifiedOn", time.Now().Unix())
+//
+//	return nil
+//}
 
 func GetTags(pageNum int, pageSize int, maps interface{}) (tags []Tag) {
 	db.Where(maps).Offset(pageNum).Limit(pageSize).Find(&tags)
@@ -38,45 +35,57 @@ func GetTagTotal(maps interface{}) (count int) {
 	return
 }
 
-func ExistTagByName(name string) bool {
+func ExistTagByName(name string) (bool, error) {
 	var tag Tag
-	db.Select("id").Where("name = ?", name).First(&tag)
+	err := db.Select("id").Where("name = ?", name).First(&tag).Error
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return false, err
+	}
 	if tag.ID > 0 {
-		return true
+		return true, nil
 	}
 
-	return false
+	return false, nil
 }
 
-func AddTag(name string, state int, createdBy string) bool {
+func AddTag(name string, state int, createdBy string) error {
 	tag := Tag{
 		Name:      name,
 		State:     state,
 		CreatedBy: createdBy,
 	}
-	db.Create(&tag)
-
-	return true
-}
-
-func ExistTagByID(id int) bool {
-	var tag Tag
-	db.Select("id").Where("id = ?", id).First(&tag)
-	if tag.ID > 0 {
-		return true
+	if err := db.Create(&tag).Error ;err != nil {
+		return err
 	}
 
-	return false
+	return nil
 }
 
-func DeleteTag(id int) bool {
-	db.Where("id = ?", id).Delete(&Tag{})
+func ExistTagByID(id int) (bool, error) {
+	var tag Tag
+	err := db.Select("id").Where("id = ?", id).First(&tag).Error
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return false, err
+	}
+	if tag.ID > 0 {
+		return true, nil
+	}
 
-	return true
+	return false, nil
 }
 
-func EditTag(id int, data interface{}) bool {
-	db.Model(&Tag{}).Where("id = ?", id).Updates(data)
+func DeleteTag(id int) error {
+	if err:=db.Where("id = ?", id).Delete(&Tag{}).Error;err!=nil{
+		return err
+	}
 
-	return true
+	return nil
+}
+
+func EditTag(id int, data interface{}) error {
+	if err:=db.Model(&Tag{}).Where("id = ?", id).Updates(data).Error;err!=nil{
+		return err
+	}
+
+	return nil
 }

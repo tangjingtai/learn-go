@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"gin-blog/pkg/app"
 	"log"
 	"net/http"
 
@@ -69,7 +70,7 @@ func GetArticles(c *gin.Context) {
 	if !valid.HasErrors() {
 		code = e.SUCCESS
 
-		data["lists"] = models.GetArticles(util.GetPage(c), setting.PageSize, maps)
+		data["lists"] = models.GetArticles(util.GetPage(c), setting.AppSetting.PageSize, maps)
 		data["total"] = models.GetArticleTotal(maps)
 
 	} else {
@@ -87,6 +88,7 @@ func GetArticles(c *gin.Context) {
 
 //新增文章
 func AddArticle(c *gin.Context) {
+	appG := app.Gin{C: c}
 	tagId := com.StrTo(c.Query("tag_id")).MustInt()
 	title := c.Query("title")
 	desc := c.Query("desc")
@@ -104,7 +106,12 @@ func AddArticle(c *gin.Context) {
 
 	code := e.INVALID_PARAMS
 	if !valid.HasErrors() {
-		if models.ExistTagByID(tagId) {
+		exists, err := models.ExistTagByID(tagId)
+		if err != nil{
+			appG.Response(http.StatusInternalServerError, e.ERROR_NOT_EXIST_TAG, nil)
+			return
+		}
+		if exists {
 			data := make(map[string]interface{})
 			data["tag_id"] = tagId
 			data["title"] = title
@@ -133,6 +140,7 @@ func AddArticle(c *gin.Context) {
 
 //修改文章
 func EditArticle(c *gin.Context) {
+	appG := app.Gin{C: c}
 	valid := validation.Validation{}
 
 	id := com.StrTo(c.Param("id")).MustInt()
@@ -158,7 +166,12 @@ func EditArticle(c *gin.Context) {
 	code := e.INVALID_PARAMS
 	if !valid.HasErrors() {
 		if models.ExistArticleByID(id) {
-			if models.ExistTagByID(tagId) {
+			exists, err := models.ExistTagByID(tagId)
+			if err != nil{
+				appG.Response(http.StatusInternalServerError, e.ERROR_NOT_EXIST_TAG, nil)
+				return
+			}
+			if exists {
 				data := make(map[string]interface{})
 				if tagId > 0 {
 					data["tag_id"] = tagId
