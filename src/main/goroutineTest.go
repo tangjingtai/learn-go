@@ -1,9 +1,10 @@
 package main
 
 import (
-"fmt"
-"time"
+	"fmt"
+	"time"
 )
+
 func goroutineEntrance() {
 	// 构建一个通道
 	ch := make(chan int)
@@ -16,7 +17,7 @@ func goroutineEntrance() {
 			// 每次发送完时等待
 			time.Sleep(time.Second)
 			time.After(time.Second)
-			time.AfterFunc(time.Second,func(){})
+			time.AfterFunc(time.Second, func() {})
 		}
 	}()
 	// 遍历接收通道数据

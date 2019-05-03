@@ -8,17 +8,17 @@ import (
 	"strings"
 )
 
-func server(address string, exitChan chan int){
-	l, err :=net.Listen("tcp", address)
-	if err != nil{
+func server(address string, exitChan chan int) {
+	l, err := net.Listen("tcp", address)
+	if err != nil {
 		fmt.Println(err.Error())
 		exitChan <- 1
 	}
-	fmt.Println("listen:"+ address)
+	fmt.Println("listen:" + address)
 	defer l.Close()
-	for{
-		conn, err:= l.Accept()
-		if err!=nil{
+	for {
+		conn, err := l.Accept()
+		if err != nil {
 			fmt.Println(err.Error())
 			continue
 		}
@@ -26,12 +26,12 @@ func server(address string, exitChan chan int){
 	}
 }
 
-func handleSession(conn net.Conn, exitChan chan int){
+func handleSession(conn net.Conn, exitChan chan int) {
 	fmt.Println("Session started:")
-	reader:=bufio.NewReader(conn)
-	for{
-		s,err:=reader.ReadString('\n')
-		if err == nil{
+	reader := bufio.NewReader(conn)
+	for {
+		s, err := reader.ReadString('\n')
+		if err == nil {
 			s = strings.TrimSpace(s)
 
 			if !processTelnetCommand(s, exitChan) {
@@ -39,7 +39,7 @@ func handleSession(conn net.Conn, exitChan chan int){
 				break
 			}
 
-			conn.Write([]byte(s+"\r\n"))
+			conn.Write([]byte(s + "\r\n"))
 		} else {
 			fmt.Println("Session closed")
 			conn.Close()
