@@ -1,8 +1,8 @@
 package main
 
 import (
-"fmt"
-"time"
+	"fmt"
+	"time"
 )
 func goroutineEntrance() {
 	// 构建一个通道
@@ -15,14 +15,16 @@ func goroutineEntrance() {
 			ch <- i
 			// 每次发送完时等待
 			time.Sleep(time.Second)
-			time.After(time.Second)
-			time.AfterFunc(time.Second,func(){})
+			<-time.After(time.Second)
+			time.AfterFunc(time.Second,func(){
+				fmt.Printf("afterFunc, time:%v \n", time.Now())
+			})
 		}
 	}()
 	// 遍历接收通道数据
 	for data := range ch {
 		// 打印通道数据
-		fmt.Println(data)
+		fmt.Printf("data:%d, time:%v \n",data, time.Now())
 		// 当遇到数据0时, 退出接收循环
 		if data == 0 {
 			break
