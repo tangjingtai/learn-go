@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 )
+
 func goroutineEntrance() {
 	// 构建一个通道
 	ch := make(chan int)

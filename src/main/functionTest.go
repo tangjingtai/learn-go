@@ -3,20 +3,25 @@ package main
 import (
 	"fmt"
 )
+
 // 调用器接口
 type Invoker interface {
 	// 需要实现一个Call方法
 	Call(interface{})
 }
+
 // 结构体类型
 type Struct struct {
 }
+
 // 实现Invoker的Call
 func (s *Struct) Call(p interface{}) {
 	fmt.Println("from struct", p)
 }
+
 // 函数定义为类型
 type FuncCaller func(interface{})
+
 // 实现Invoker的Call
 func (f FuncCaller) Call(p interface{}) {
 	// 调用f函数本体
@@ -33,11 +38,11 @@ func (b *Bag) Insert(itemid int) {
 
 type MyInt int
 
-func(i MyInt) Add(other int) int{
+func (i MyInt) Add(other int) int {
 	return other + int(i)
 }
 
-func(i *MyInt) AddRef(other int){
+func (i *MyInt) AddRef(other int) {
 	*i = MyInt(int(*i) + other)
 }
 

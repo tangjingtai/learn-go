@@ -9,13 +9,27 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/gin-gonic/gin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/go-ini/ini" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/go-sql-driver/mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/golang/net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/golang/net2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/golang/text" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/golang/text2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/google/go-genproto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/grpc/grpc" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/gorm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/inflection" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/kardianos/govendor" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/mattn/go-isatty" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/pkg/profile" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/ugorji/go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/genproto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/text" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/text" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/google.golang.org/genproto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/google.golang.org/net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/google.golang.org/text" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/gopkg.in/go-playground/validator.v8" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/gopkg.in/yaml.v2" vcs="Git" />
   </component>
