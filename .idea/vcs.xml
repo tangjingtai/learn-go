@@ -3,24 +3,49 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/Unknwon/com" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/armon/go-metrics" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/astaxie/beego" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/dgrijalva/jwt-go" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/gin-contrib/sse" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/gin-gonic/gin" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/go-ini/ini" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/go-log/log" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/go-sql-driver/mysql" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/net" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/net2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/golang/sys" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/text" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/text2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/google/btree" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/google/go-genproto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/google/uuid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/grpc/grpc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/grpc/grpc-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/consul" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/errwrap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/go-immutable-radix" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/go-msgpack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/go-multierror" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/go-sockaddr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/golang-lru" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/memberlist" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/gorm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/inflection" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/kardianos/govendor" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/mattn/go-isatty" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/micro/cli" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-log" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-micro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-rcache" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/micro/mdns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/micro/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/micro/util" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/miekg/dns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/mitchellh/hashstructure" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/pkg/errors" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/pkg/profile" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/sean-/seed" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/ugorji/go" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/golang.org/genproto" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/golang.org/net" vcs="Git" />
@@ -28,6 +53,7 @@
     <mapping directory="$PROJECT_DIR$/src/golang.org/x/net" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/golang.org/x/text" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/google.golang.org/genproto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/google.golang.org/grpc" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/google.golang.org/net" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/google.golang.org/text" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/gopkg.in/go-playground/validator.v8" vcs="Git" />

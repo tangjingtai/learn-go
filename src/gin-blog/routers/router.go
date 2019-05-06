@@ -6,6 +6,7 @@ import (
 	"gin-blog/routers/api"
 	"gin-blog/routers/api/v1"
 	"github.com/gin-gonic/gin"
+	"net"
 	"net/http"
 )
 
@@ -59,6 +60,24 @@ func InitRouter() *gin.Engine {
 				"name":  name,
 				"value": 200,
 			},
+		})
+	})
+	apiTest.GET("ip", func(c *gin.Context) {
+		addrs, err := net.InterfaceAddrs()
+		if err != nil {
+			fmt.Println(err)
+		}
+		ip := []string{}
+		for _, address := range addrs {
+			// 检查ip地址判断是否回环地址
+			if ipnet, ok := address.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
+				if ipnet.IP.To4() != nil {
+					ip = append(ip, ipnet.IP.String())
+				}
+			}
+		}
+		c.JSON(http.StatusOK, gin.H{
+			"ip": ip,
 		})
 	})
 

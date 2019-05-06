@@ -1,12 +1,12 @@
 package main
 
 import (
+	"context"
+	"github.com/micro/go-micro"
+	"log"
+	vesselPb "shippy/vessel-service/proto/vessel"
 	// 导入 protoc 自动生成的包
 	pb "shippy/consignment-service/proto/consignment"
-	"context"
-	"net"
-	"log"
-	"google.golang.org/grpc"
 )
 
 const (
@@ -41,6 +41,8 @@ func (repo *Repository) GetAll() []*pb.Consignment {
 //
 type service struct {
 	repo Repository
+	// consignment-service 作为客户端调用 vessel-service 的函数
+	vesselClient vesselPb.VesselServiceClient
 }
 
 //
@@ -48,31 +50,45 @@ type service struct {
 // 使 service 作为 gRPC 的服务端
 //
 // 托运新的货物
-func (s *service) CreateConsignment(ctx context.Context, req *pb.Consignment) (*pb.Response, error) {
-	// 接收承运的货物
+func (s *service) CreateConsignment(ctx context.Context, req *pb.Consignment, resp *pb.Response) error {
+	// 检查是否有适合的货轮
+	vReq := &vesselPb.Specification{
+		Capacity:  int32(len(req.Containers)),
+		MaxWeight: req.Weight,
+	}
+	vResp, err := s.vesselClient.FindAvailable(context.Background(), vReq)
+	if err != nil {
+		return err
+	}
+
+	// 货物被承运
+	log.Printf("found vessel: %s\n", vResp.Vessel.Name)
+	req.VesselId = vResp.Vessel.Id
 	consignment, err := s.repo.Create(req)
 	if err != nil {
-		return nil, err
+		return err
 	}
-	resp := &pb.Response{Created: true, Consignment: consignment}
-	return resp, nil
+	resp.Created = true
+	resp.Consignment = consignment
+	return nil
+}
+
+// 查看托运货物的信息
+func (s *service) GetConsignments(ctx context.Context, req *pb.GetRequest, resp *pb.Response) error {
+	*resp = pb.Response{Consignments: s.repo.GetAll()}
+	return nil
 }
 
 func main() {
-	listener, err := net.Listen("tcp", PORT)
-	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
-	}
-	log.Printf("listen on: %s\n", PORT)
-
-	server := grpc.NewServer()
+	server := micro.NewService(
+		micro.Name("go.micro.srv.consignment"),
+		micro.Version("latest"),
+	)
+	server.Init()
 	repo := Repository{}
+	pb.RegisterShippingServiceHandler(server.Server(), &service{repo: repo})
 
-	// 向 rRPC 服务器注册微服务
-	// 此时会把我们自己实现的微服务 service 与协议中的 ShippingServiceServer 绑定
-	pb.RegisterShippingServiceServer(server, &service{repo})
-
-	if err := server.Serve(listener); err != nil {
+	if err := server.Run(); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
 }
