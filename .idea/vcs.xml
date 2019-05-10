@@ -33,6 +33,8 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/gorm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/inflection" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/kardianos/govendor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/labstack/gommon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/mattn/go-colorable" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/mattn/go-isatty" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/cli" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-log" vcs="Git" />
@@ -45,8 +47,10 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/mitchellh/hashstructure" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/pkg/errors" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/pkg/profile" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/satori/go.uuid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/sean-/seed" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/ugorji/go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/valyala/fasttemplate" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/golang.org/genproto" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/golang.org/net" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/golang.org/text" vcs="Git" />
@@ -57,6 +61,7 @@
     <mapping directory="$PROJECT_DIR$/src/google.golang.org/net" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/google.golang.org/text" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/gopkg.in/go-playground/validator.v8" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/gopkg.in/mgo.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/gopkg.in/yaml.v2" vcs="Git" />
   </component>
 </project>
