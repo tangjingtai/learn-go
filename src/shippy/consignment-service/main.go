@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/micro/go-micro"
+	"github.com/micro/go-micro/cmd"
 	"log"
 	"os"
 	consPb "shippy/consignment-service/proto/consignment"
@@ -25,10 +26,13 @@ func main() {
 		log.Fatalf("create session error: %v\n", err)
 	}
 
+	cmd.Init()
+
 	server := micro.NewService(
 		// 必须和 consignment.proto 中的 package 一致
 		micro.Name("go.micro.srv.consignment"),
 		micro.Version("latest"),
+		micro.Address("localhost:0"),
 	)
 
 	// 解析命令行参数
