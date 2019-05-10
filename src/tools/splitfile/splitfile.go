@@ -1,4 +1,4 @@
-package main
+package splitfile
 
 import (
 	"bufio"
@@ -16,13 +16,13 @@ import (
 var (
 	sfile string // 源文件
 	dpath string // 目标路径
-	size int // 每个文件放置多少行数据
+	size  int    // 每个文件放置多少行数据
 )
 
-func init()  {
-	flag.StringVar(&sfile,"sfile", "", "指定待分拆的源文件路径")
-	flag.StringVar(&dpath,"dpath", "", "指定分拆后保存文件的目录")
-	flag.IntVar(&size,"size", 0, "指定每个文件放置多少行数据")
+func init() {
+	flag.StringVar(&sfile, "sfile", "", "指定待分拆的源文件路径")
+	flag.StringVar(&dpath, "dpath", "", "指定分拆后保存文件的目录")
+	flag.IntVar(&size, "size", 0, "指定每个文件放置多少行数据")
 }
 
 func main() {
@@ -50,7 +50,7 @@ func main() {
 	f, err := os.OpenFile(destFileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0)
 	defer f.Close()
 	lineCount := 0
-	err = readLine(sfile, func(bytes []byte) {
+	err = ReadLine(sfile, func(bytes []byte) {
 		line := string(bytes)
 		line = strings.TrimRight(strings.TrimRight(line, "\r"), "\n")
 		items := strings.Split(line, "\t")
@@ -60,7 +60,7 @@ func main() {
 		if _, err := strconv.Atoi(items[0]); err != nil {
 			return
 		}
-		lineCount ++
+		lineCount++
 		f.WriteString(fmt.Sprintf("%s\n", line))
 		if lineCount%size == 0 {
 			f.Close()
@@ -74,7 +74,7 @@ func main() {
 	}
 }
 
-func readLine(filePth string, hookfn func([]byte)) error {
+func ReadLine(filePth string, hookfn func([]byte)) error {
 	f, err := os.Open(filePth)
 	if err != nil {
 		return err
@@ -84,7 +84,7 @@ func readLine(filePth string, hookfn func([]byte)) error {
 	bfRd := bufio.NewReader(f)
 	for {
 		line, err := bfRd.ReadBytes('\n')
-		hookfn(line) //放在错误处理前面，即使发生错误，也会处理已经读取到的数据。
+		hookfn(line)    //放在错误处理前面，即使发生错误，也会处理已经读取到的数据。
 		if err != nil { //遇到任何错误立即返回，并忽略 EOF 错误信息
 			if err == io.EOF {
 				return nil
@@ -93,4 +93,17 @@ func readLine(filePth string, hookfn func([]byte)) error {
 		}
 	}
 	return nil
+}
+
+func ReadAllLine(filePth string) ([]string, error) {
+	var lines []string
+	processLine := func(line []byte) {
+		str := strings.TrimRight(string(line), "\r")
+		if str == "" {
+			return
+		}
+		lines = append(lines, str)
+	}
+	err := ReadLine(filePth, processLine)
+	return lines, err
 }

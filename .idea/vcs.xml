@@ -49,6 +49,7 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/pkg/profile" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/satori/go.uuid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/sean-/seed" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/tealeg/xlsx" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/ugorji/go" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/valyala/fasttemplate" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/golang.org/genproto" vcs="Git" />
