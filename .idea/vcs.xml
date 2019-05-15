@@ -11,6 +11,8 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/go-ini/ini" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/go-log/log" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/go-sql-driver/mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/golang/crypto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/golang/crypto2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/net" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/net2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/golang/protobuf" vcs="Git" />
@@ -34,6 +36,7 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/inflection" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/kardianos/govendor" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/labstack/gommon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/lib/pq" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/mattn/go-colorable" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/mattn/go-isatty" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/cli" vcs="Git" />

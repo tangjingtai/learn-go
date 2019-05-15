@@ -28,6 +28,7 @@ func main() {
 	s := micro.NewService(
 		micro.Name("go.micro.srv.user"),
 		micro.Version("latest"),
+		micro.Address("localhost:0"),
 	)
 
 	s.Init()
