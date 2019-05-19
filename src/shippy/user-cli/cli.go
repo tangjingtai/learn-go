@@ -24,6 +24,18 @@ func main() {
 		log.Fatalf("Could not create: %v", err)
 	}
 	log.Printf("Created: %v", r.User.Id)
+
+	t, err := client.Auth(context.Background(), &pb.User{Email: "a253210810@qq.com", Password: "123456"})
+	if err != nil {
+		log.Fatalf("Could not Auth: %v", err)
+	}
+	log.Printf("Token: %v", t.Token)
+
+	t, err = client.ValidateToken(context.Background(), &pb.Token{Token: t.Token})
+	if err != nil {
+		log.Fatalf("Could not validate token: %v", err)
+	}
+	log.Printf("Token valid: %v", t.Valid)
 	//// 设置命令行参数
 	//service := micro.NewService(
 	//	micro.Flags(

@@ -4,6 +4,7 @@ package main
 import (
 	"context"
 	"errors"
+	"github.com/micro/go-micro"
 	"golang.org/x/crypto/bcrypt"
 	userProto "shippy/user-service/proto/user"
 )
@@ -11,6 +12,7 @@ import (
 type handler struct {
 	repo         Repository
 	tokenService Authable
+	publisher    micro.Publisher
 }
 
 func (h *handler) Create(ctx context.Context, req *userProto.User, resp *userProto.Response) error {
@@ -24,6 +26,10 @@ func (h *handler) Create(ctx context.Context, req *userProto.User, resp *userPro
 		return nil
 	}
 	resp.User = req
+	// 发布带有用户所有信息的消息
+	if err := h.publisher.Publish(ctx, req); err != nil {
+		return err
+	}
 	return nil
 }
 

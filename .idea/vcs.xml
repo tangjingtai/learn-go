@@ -42,6 +42,7 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/cli" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-log" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-micro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-plugins" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-rcache" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/mdns" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/protobuf" vcs="Git" />
@@ -52,6 +53,7 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/pkg/profile" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/satori/go.uuid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/sean-/seed" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/streadway/amqp" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/ugorji/go" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/valyala/fasttemplate" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/golang.org/genproto" vcs="Git" />
