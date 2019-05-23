@@ -6,6 +6,6 @@ build:
 	go build
 	
 # 根据当前目录下的 Dockerfile 生成名为 consignment-service 的镜像 
-	docker build -t consignment-service .
+#docker build -t consignment-service .
 run:
 	docker run -d -p 50051:50051 consignment-service

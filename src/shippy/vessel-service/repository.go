@@ -25,9 +25,10 @@ type VesselRepository struct {
 func (repo *VesselRepository) FindAvailable(spec *vesselPb.Specification) (*vesselPb.Vessel, error) {
 	// 选择最近一条容量、载重都符合的货轮
 	var v *vesselPb.Vessel
-	err := repo.collection().Find(bson.M{
+	collection := repo.collection()
+	err := collection.Find(bson.M{
 		"capacity":  bson.M{"$gte": spec.Capacity},
-		"maxweight": bson.M{"$bte": spec.MaxWeight},
+		"maxweight": bson.M{"$gte": spec.MaxWeight},
 	}).One(&v)
 	if err != nil {
 		return nil, err

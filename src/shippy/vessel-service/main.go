@@ -3,9 +3,10 @@ package main
 
 import (
 	"github.com/micro/go-micro"
+	"github.com/micro/go-micro/cmd"
 	"log"
 	"os"
-	vesselPb "shippy/vessel-service/proto/vessel"
+	vesselProto "shippy/vessel-service/proto/vessel"
 )
 
 const (
@@ -24,24 +25,22 @@ func main() {
 	if err != nil {
 		log.Fatalf("create session error: %v\n", err)
 	}
-	service := micro.NewService(
-		micro.Name("go.micro.srv.vessel"),
-		micro.Version("latest"),
-	)
-	service.Init()
 
 	// 停留在港口的货船，先写死
 	repo := &VesselRepository{session.Copy()}
 	CreateDummyData(repo)
 
+	cmd.Init()
+
 	server := micro.NewService(
 		micro.Name("go.micro.srv.vessel"),
 		micro.Version("latest"),
+		micro.Address("localhost:0"),
 	)
-	server.Init()
 
-	// 将实现服务端的 API 注册到服务端
-	vesselPb.RegisterVesselServiceHandler(server.Server(), &handler{session})
+	// 解析命令行参数
+	server.Init()
+	vesselProto.RegisterVesselServiceHandler(server.Server(), &handler{session})
 
 	if err := server.Run(); err != nil {
 		log.Fatalf("failed to serve: %v", err)
@@ -50,7 +49,7 @@ func main() {
 
 func CreateDummyData(repo Repository) {
 	defer repo.Close()
-	vessels := []*vesselPb.Vessel{
+	vessels := []*vesselProto.Vessel{
 		{Id: "vessel001", Name: "Boaty McBoatface", MaxWeight: 200000, Capacity: 500},
 	}
 	for _, v := range vessels {
