@@ -1,0 +1,33 @@
+//指定版本
+//注意proto3与proto2的写法有些不同
+syntax = "proto3";
+
+//包名，通过protoc生成时go文件时
+package test;
+
+// 手机号码类型
+enum PhoneType{
+    HOME = 0;
+    WORK = 1;
+}
+
+// 手机号码
+message Phone{
+    PhoneType type =1;
+    string number = 2;
+}
+
+// 联系人
+message Person{
+    int32 id = 1;
+    string name = 2;
+    repeated Phone phones = 3;
+    // 测试负数
+    sint32 id2 = 4;
+}
+
+// 通讯录
+message ContactBook{
+    repeated Person persons = 1;
+}
+

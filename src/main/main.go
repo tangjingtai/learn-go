@@ -4,7 +4,10 @@ import "fmt"
 
 func main() {
 	//goroutineEntrance()
-	contextTest()
+	//contextTest()
+	//protobufTest()
+	//pointConvertTest()
+	deferTest()
 }
 
 func sliceTest() {

@@ -1,4 +1,4 @@
-package splitfile
+package main
 
 import (
 	"bufio"
@@ -9,7 +9,6 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"strconv"
 	"strings"
 )
 
@@ -45,28 +44,39 @@ func main() {
 	fileName := filepath.Base(sfile)
 	fileSuffix := path.Ext(fileName)
 	fileNameWithOutSuffix := strings.TrimSuffix(fileName, fileSuffix) //获取文件名
-	fileIndex := 1
-	destFileName := path.Join(dpath, fmt.Sprintf("%s%d%s", fileNameWithOutSuffix, fileIndex, fileSuffix))
-	f, err := os.OpenFile(destFileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0)
-	defer f.Close()
+	fileIndex := 0
+	var f *os.File
+	defer func() {
+		if f != nil {
+			f.Close()
+		}
+	}()
 	lineCount := 0
 	err = ReadLine(sfile, func(bytes []byte) {
 		line := string(bytes)
-		line = strings.TrimRight(strings.TrimRight(line, "\r"), "\n")
-		items := strings.Split(line, "\t")
-		if len(items) < 3 {
-			return
-		}
-		if _, err := strconv.Atoi(items[0]); err != nil {
-			return
-		}
+		line = strings.TrimRight(strings.TrimRight(line, "\n"), "\r")
+		//items := strings.Split(line, "\t")
+		//if len(items) < 3 {
+		//	return
+		//}
+		//if _, err := strconv.Atoi(items[0]); err != nil {
+		//	return
+		//}
 		lineCount++
-		f.WriteString(fmt.Sprintf("%s\n", line))
-		if lineCount%size == 0 {
-			f.Close()
+		if lineCount%size == 1 {
 			fileIndex++
-			destFileName := path.Join(dpath, fmt.Sprintf("%s%d%s", fileNameWithOutSuffix, fileIndex, fileSuffix))
-			f, err = os.OpenFile(destFileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0)
+			destFileName := path.Join(dpath, fmt.Sprintf("%s%05d%s", fileNameWithOutSuffix, fileIndex, fileSuffix))
+			if f != nil {
+				f.Close()
+				f2, _ := os.OpenFile(destFileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0)
+				*f = *f2
+			} else {
+				f, _ = os.OpenFile(destFileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0)
+			}
+		}
+		f.WriteString(line)
+		if lineCount%size != 0 {
+			f.WriteString("\n")
 		}
 	})
 	if err != nil {

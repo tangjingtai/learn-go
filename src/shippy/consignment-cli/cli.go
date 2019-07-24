@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	microclient "github.com/micro/go-micro/client"
-	"github.com/micro/go-micro/cmd"
 	"io/ioutil"
 	"log"
 	"os"
@@ -13,7 +12,6 @@ import (
 )
 
 const (
-	ADDRESS           = "localhost:50051"
 	DEFAULT_INFO_FILE = "consignment.json"
 )
 
@@ -32,8 +30,6 @@ func parseFile(fileName string) (*consProto.Consignment, error) {
 }
 
 func main() {
-	cmd.Init()
-
 	//vesselClient := vesselProto.NewVesselServiceClient("go.micro.srv.vessel", microclient.DefaultClient)
 	//vReq := &vesselProto.Specification{
 	//	Capacity:  1,

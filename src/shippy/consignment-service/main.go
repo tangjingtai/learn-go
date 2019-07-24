@@ -3,7 +3,8 @@ package main
 
 import (
 	"github.com/micro/go-micro"
-	"github.com/micro/go-micro/cmd"
+	"github.com/micro/go-micro/registry"
+	"github.com/micro/go-micro/registry/consul"
 	"log"
 	"os"
 	consPb "shippy/consignment-service/proto/consignment"
@@ -15,25 +16,30 @@ const (
 )
 
 func main() {
-	// 获取容器设置的数据库地址环境变量的值
+	//获取容器设置的数据库地址环境变量的值
 	dbHost := os.Getenv("DB_HOST")
 	if dbHost == "" {
 		dbHost = DEFAULT_HOST
 	}
 	session, err := CreateSession(dbHost)
-	// 创建于 MongoDB 的主会话，需在退出 main() 时候手动释放连接
+	//创建于 MongoDB 的主会话，需在退出 main() 时候手动释放连接
 	defer session.Close()
+
 	if err != nil {
 		log.Fatalf("create session error: %v\n", err)
 	}
 
-	cmd.Init()
-
+	reg := consul.NewRegistry(func(op *registry.Options) {
+		op.Addrs = []string{
+			"192.168.1.101:8500",
+		}
+	})
 	server := micro.NewService(
 		// 必须和 consignment.proto 中的 package 一致
 		micro.Name("go.micro.srv.consignment"),
 		micro.Version("latest"),
-		micro.Address("localhost:0"),
+		micro.Registry(reg),
+		//micro.Address("localhost:0"),
 	)
 
 	// 解析命令行参数

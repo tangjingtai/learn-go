@@ -34,6 +34,7 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/hashicorp/memberlist" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/gorm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/jinzhu/inflection" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/json-iterator/go" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/kardianos/govendor" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/labstack/gommon" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/lib/pq" vcs="Git" />
@@ -45,16 +46,22 @@
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-plugins" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/go-rcache" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/mdns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/micro/micro" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/protobuf" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/micro/util" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/miekg/dns" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/mitchellh/hashstructure" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/modern-go/concurrent" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/modern-go/reflect2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/nats-io/nats.go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/nats-io/nkeys" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/nats-io/nuid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/pkg/errors" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/pkg/profile" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/satori/go.uuid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/sean-/seed" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/streadway/amqp" vcs="Git" />
-<mapping directory="$PROJECT_DIR$/src/github.com/tealeg/xlsx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/tealeg/xlsx" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/ugorji/go" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/valyala/fasttemplate" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/golang.org/genproto" vcs="Git" />
@@ -69,5 +76,105 @@
     <mapping directory="$PROJECT_DIR$/src/gopkg.in/go-playground/validator.v8" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/gopkg.in/mgo.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/gopkg.in/yaml.v2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/Unknwon/com" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/armon/go-metrics" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/astaxie/beego" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/dgrijalva/jwt-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/gin-contrib/sse" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/gin-gonic/gin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/go-ini/ini" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/go-log/log" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/go-sql-driver/mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/golang/net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/golang/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/golang/sys" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/golang/text" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/google/btree" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/google/uuid" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/grpc/grpc-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/hashicorp/consul" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/hashicorp/errwrap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/hashicorp/go-immutable-radix" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/hashicorp/go-msgpack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/hashicorp/go-multierror" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/hashicorp/go-sockaddr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/hashicorp/golang-lru" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/hashicorp/memberlist" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/jinzhu/gorm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/jinzhu/inflection" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/kardianos/govendor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/labstack/gommon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/mattn/go-colorable" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/mattn/go-isatty" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/micro/cli" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/micro/go-log" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/micro/go-micro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/micro/go-rcache" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/micro/mdns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/micro/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/micro/util" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/miekg/dns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/mitchellh/hashstructure" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/pkg/errors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/pkg/profile" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/sean-/seed" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/tealeg/xlsx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/ugorji/go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/github.com/valyala/fasttemplate" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/google.golang.org/genproto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/google.golang.org/grpc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/gopkg.in/go-playground/validator.v8" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/gopkg.in/mgo.v2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/第三方包备份/gopkg.in/yaml.v2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/Unknwon/com" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/armon/go-metrics" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/astaxie/beego" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/dgrijalva/jwt-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/gin-contrib/sse" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/gin-gonic/gin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/go-ini/ini" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/go-log/log" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/go-sql-driver/mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/golang/net" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/golang/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/golang/sys" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/golang/text" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/google/btree" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/google/uuid" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/grpc/grpc-go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/hashicorp/consul" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/hashicorp/errwrap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/hashicorp/go-immutable-radix" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/hashicorp/go-msgpack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/hashicorp/go-multierror" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/hashicorp/go-sockaddr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/hashicorp/golang-lru" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/hashicorp/memberlist" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/jinzhu/gorm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/jinzhu/inflection" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/kardianos/govendor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/labstack/gommon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/mattn/go-colorable" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/mattn/go-isatty" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/micro/cli" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/micro/go-log" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/micro/go-micro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/micro/go-rcache" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/micro/mdns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/micro/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/micro/util" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/miekg/dns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/mitchellh/hashstructure" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/pkg/errors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/pkg/profile" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/sean-/seed" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/tealeg/xlsx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/ugorji/go" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/github.com/valyala/fasttemplate" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/google.golang.org/genproto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/google.golang.org/grpc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/gopkg.in/go-playground/validator.v8" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/gopkg.in/mgo.v2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/第三方包备份/gopkg.in/yaml.v2" vcs="Git" />
   </component>
 </project>

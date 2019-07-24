@@ -9,10 +9,21 @@ func Float64bits(f float64) uint64 {
 	return *(*uint64)(unsafe.Pointer(&f))
 }
 
+type P struct {
+	Id   int
+	Name string
+}
+
 func pointConvertTest() {
 	var f float64 = 0.11
 	u := Float64bits(f)
 	fmt.Println(u)
+	//(*[2]unsafe.Pointer)(unsafe.Pointer(i))[1]
+	p := &P{1, "zhangsan"}
+	ps := (*[2]unsafe.Pointer)(unsafe.Pointer(p))
+	p0 := ps[0]
+	p1 := ps[1]
+	fmt.Println(p, ps, p0, p1)
 
 	us := [...]uint32{1, 2, 3}
 	p_us := unsafe.Pointer(&us)

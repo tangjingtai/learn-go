@@ -3,7 +3,8 @@ package main
 
 import (
 	"github.com/micro/go-micro"
-	"github.com/micro/go-micro/cmd"
+	"github.com/micro/go-micro/registry"
+	"github.com/micro/go-micro/registry/consul"
 	"log"
 	"os"
 	vesselProto "shippy/vessel-service/proto/vessel"
@@ -30,12 +31,16 @@ func main() {
 	repo := &VesselRepository{session.Copy()}
 	CreateDummyData(repo)
 
-	cmd.Init()
-
+	reg := consul.NewRegistry(func(op *registry.Options) {
+		op.Addrs = []string{
+			"192.168.1.101:8500",
+		}
+	})
 	server := micro.NewService(
 		micro.Name("go.micro.srv.vessel"),
 		micro.Version("latest"),
-		micro.Address("localhost:0"),
+		micro.Registry(reg),
+		//micro.Address("localhost:0"),
 	)
 
 	// 解析命令行参数
