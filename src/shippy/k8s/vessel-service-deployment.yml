@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: consignment-service
+  name: vessel-service
   labels:
-    app: consignment-service
+    app: vessel-service
 spec:
   replicas: 2
-  serviceName: consignment-service
+  serviceName: vessel-service
   selector:
     matchLabels:
-      app: consignment-service
+      app: vessel-service
   template:
     metadata:
       labels:
-        app: consignment-service
+        app: vessel-service
     spec:
       #表明该容器一直运行，默认k8s的策略，在此容器退出后，会立即创建一个相同的容器 
       restartPolicy: Always 
       #表示要部署到哪个node上
       #nodeSelector: node1 
       containers:
-      - name: consignment-service  
-        image: 192.168.1.101:5000/consignment-service:v1
+      - name: vessel-service  
+        image: 192.168.1.101:5000/vessel-service:v1
         # 定义环境变量
         env:
         - name: DB_HOST
@@ -35,8 +35,8 @@ spec:
             fieldRef:
               fieldPath: status.podIP
         - name: MICRO_SERVER_ADDRESS
-          value: $(PODIP):50051
+          value: $(PODIP):50052
         ports:
         - name: tcp
-          containerPort: 50051
+          containerPort: 50052
           protocol: TCP

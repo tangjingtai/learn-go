@@ -12,7 +12,8 @@ import (
 )
 
 const (
-	DEFAULT_HOST = "localhost:27017"
+	DEFAULT_HOST            = "localhost:27017"
+	DEFAULT_CONSUL_REGISTRY = "192.168.1.101:8500"
 )
 
 func main() {
@@ -20,6 +21,10 @@ func main() {
 	dbHost := os.Getenv("DB_HOST")
 	if dbHost == "" {
 		dbHost = DEFAULT_HOST
+	}
+	consulRegistry := os.Getenv("ConsulRegistry")
+	if consulRegistry == "" {
+		consulRegistry = DEFAULT_CONSUL_REGISTRY
 	}
 	session, err := CreateSession(dbHost)
 	//创建于 MongoDB 的主会话，需在退出 main() 时候手动释放连接
@@ -31,7 +36,7 @@ func main() {
 
 	reg := consul.NewRegistry(func(op *registry.Options) {
 		op.Addrs = []string{
-			"192.168.1.101:8500",
+			consulRegistry,
 		}
 	})
 	server := micro.NewService(

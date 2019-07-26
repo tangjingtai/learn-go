@@ -4,7 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	microclient "github.com/micro/go-micro/client"
+	"github.com/micro/go-micro"
+	"github.com/micro/go-micro/registry"
+	"github.com/micro/go-micro/registry/consul"
 	"io/ioutil"
 	"log"
 	"os"
@@ -30,14 +32,6 @@ func parseFile(fileName string) (*consProto.Consignment, error) {
 }
 
 func main() {
-	//vesselClient := vesselProto.NewVesselServiceClient("go.micro.srv.vessel", microclient.DefaultClient)
-	//vReq := &vesselProto.Specification{
-	//	Capacity:  1,
-	//	MaxWeight: 1000,
-	//}
-	//vResp, err := vesselClient.FindAvailable(context.Background(), vReq)
-	//fmt.Printf("%v\n", vResp)
-
 	// 在命令行中指定新的货物信息 json 文件
 	infoFile := DEFAULT_INFO_FILE
 	if len(os.Args) > 1 {
@@ -50,8 +44,18 @@ func main() {
 		log.Fatalf("parse info file error: %v", err)
 	}
 
+	reg := consul.NewRegistry(func(op *registry.Options) {
+		op.Addrs = []string{
+			"192.168.1.101:30500",
+		}
+	})
+	server := micro.NewService(
+		micro.Name("consignment.client"),
+		micro.Registry(reg),
+	)
+
 	// 创建微服务的客户端，简化了手动 Dial 连接服务端的步骤
-	client := consProto.NewShippingServiceClient("go.micro.srv.consignment", microclient.DefaultClient)
+	client := consProto.NewShippingServiceClient("go.micro.srv.consignment", server.Client())
 	// 调用 RPC
 	// 将货物存储到我们自己的仓库里
 	resp, err := client.CreateConsignment(context.Background(), consignment)
